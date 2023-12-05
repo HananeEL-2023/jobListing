@@ -1,5 +1,4 @@
-import React from "react";
-import JobListing from "../styles/components/JobListing";
+import JobListing from "./components/JobListing";
 
 export default function App() {
   return <JobListing />;
