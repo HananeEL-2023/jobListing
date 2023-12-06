@@ -8,6 +8,7 @@ export default {
       "light-grayish-cyan2": "hsl(180, 31%, 95%)",
       "dark-grayish-cyan": "hsl(180, 8%, 52%)",
       "very-dark-grayish-cyan": "hsl(180, 14%, 20%)",
+      white: "hsl(0, 100%, 100%)",
     },
     extend: {},
     fontFamily: {

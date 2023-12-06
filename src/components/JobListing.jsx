@@ -4,10 +4,17 @@ import "/styles/index.css";
 export default function JobListing() {
   return (
     <div>
+      <div>
+        <img
+          src="./images/bg-header-desktop.svg"
+          alt=""
+          className="bg-desaturated-dark-cyan"
+        />
+      </div>
       {data.map((job) => {
         return (
           <section key={job.id}>
-            <article className="flex items-center shadow w-9/12 mx-auto justify-between p-6">
+            <article className="flex items-center shadow w-9/12 mx-auto justify-between p-6 ">
               <div className="flex shrink-0">
                 <figure className="mr-5">
                   <img src={job.logo} alt="logo" className="w-3/4" />
