@@ -1,7 +1,13 @@
 import data from "/data.json";
+import { useState } from "react";
 import "/styles/index.css";
 
 export default function JobListing() {
+  const [choice, setChoice] = useState([]);
+  const handleClick = (e) => {
+    setChoice((prev) => [...prev, e.target.textContent]);
+  };
+
   return (
     <div>
       <div>
@@ -10,6 +16,11 @@ export default function JobListing() {
           alt=""
           className="bg-desaturated-dark-cyan"
         />
+        {choice.length > 0 && (
+          <div className="bg-white w-9/12 mx-auto py-2.5 shadow rounded relative bottom-6 pl-5">
+            <p>{choice}</p>
+          </div>
+        )}
       </div>
       {data.map((job) => {
         return (
@@ -46,10 +57,16 @@ export default function JobListing() {
                 </div>
               </div>
               <ul className="flex text-base text-desaturated-dark-cyan ">
-                <li className="mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded">
+                <li
+                  className="mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded"
+                  onClick={handleClick}
+                >
                   {job.role}
                 </li>
-                <li className="mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded">
+                <li
+                  className="mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded"
+                  onClick={handleClick}
+                >
                   {job.level}
                 </li>
                 <ul className="flex ">
@@ -58,6 +75,7 @@ export default function JobListing() {
                       <li
                         key={index}
                         className="px-2.5 rounded mr-1.5 bg-light-grayish-cyan1"
+                        onClick={handleClick}
                       >
                         {tool}
                       </li>
@@ -69,6 +87,7 @@ export default function JobListing() {
                       <li
                         key={index}
                         className="px-2.5 rounded mr-1.5 bg-light-grayish-cyan1"
+                        onClick={handleClick}
                       >
                         {language}
                       </li>
