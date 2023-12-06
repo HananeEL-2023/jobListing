@@ -8,7 +8,7 @@ export default function JobListing() {
         return (
           <section key={job.id}>
             <article className="flex items-center shadow w-9/12 mx-auto justify-between p-6">
-              <div className="flex">
+              <div className="flex shrink-0">
                 <figure className="mr-5">
                   <img src={job.logo} alt="logo" className="w-3/4" />
                 </figure>
