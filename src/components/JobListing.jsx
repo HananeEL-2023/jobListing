@@ -3,10 +3,26 @@ import { useState, useEffect } from "react";
 import "/styles/index.css";
 
 export default function JobListing() {
-  const [choice, setChoice] = useState([]);
+  const [role, setRole] = useState("");
+  const [level, setLevel] = useState("");
+  const [languages, setLanguages] = useState([]);
+  const [tools, setTools] = useState([]);
+  const [choice, setChoice] = useState([
+    { role: role, level: level, languages: languages, tools: tools },
+  ]);
 
-  const handleClick = (e) => {
-    setChoice((prev) => [...prev, e.target.textContent]);
+  const handleSelection = (e, type) => {
+    const value = e.target.textContent;
+
+    if (type === "role") {
+      setRole(value);
+    } else if (type === "level") {
+      setLevel(value);
+    } else if (type === "languages") {
+      setLanguages((prev) => [...prev, value]);
+    } else if (type === "tools") {
+      setTools((prev) => [...prev, value]);
+    }
   };
 
   useEffect(() => {
@@ -31,7 +47,7 @@ export default function JobListing() {
           alt=""
           className="bg-desaturated-dark-cyan"
         />
-        {choice.length > 0 && (
+        {/* {choice.length > 0 && (
           <div className="bg-white w-9/12 mx-auto py-2.5 shadow rounded relative bottom-6 pl-5">
             <p>
               {choice.map((item, index) => (
@@ -41,7 +57,7 @@ export default function JobListing() {
               ))}
             </p>
           </div>
-        )}
+        )} */}
       </div>
       <div className="space-y-5">
         {data.map((job) => {
@@ -81,13 +97,13 @@ export default function JobListing() {
                 <ul className="flex text-base text-desaturated-dark-cyan ">
                   <li
                     className="mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded"
-                    onClick={handleClick}
+                    onClick={(e) => handleSelection(e, "role")}
                   >
                     {job.role}
                   </li>
                   <li
                     className="mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded"
-                    onClick={handleClick}
+                    onClick={(e) => handleSelection(e, "level")}
                   >
                     {job.level}
                   </li>
@@ -97,7 +113,9 @@ export default function JobListing() {
                         <li
                           key={index}
                           className="px-2.5 rounded mr-1.5 bg-light-grayish-cyan1"
-                          onClick={handleClick}
+                          onClick={(e) => {
+                            handleSelection(e, "tools");
+                          }}
                         >
                           {tool}
                         </li>
@@ -109,7 +127,9 @@ export default function JobListing() {
                         <li
                           key={index}
                           className="px-2.5 rounded mr-1.5 bg-light-grayish-cyan1"
-                          onClick={handleClick}
+                          onClick={(e) => {
+                            handleSelection(e, "languages");
+                          }}
                         >
                           {language}
                         </li>
