@@ -12,9 +12,11 @@ export default function JobListing() {
   ]);
   const [filteredJobs, setFilteredJobs] = useState(data);
 
+  // Function to handle user selections
   const handleSelection = (e, type) => {
     const value = e.target.textContent;
 
+    // Handle selection based on the specified 'type'
     if (type === "role") {
       setRole(value);
     } else if (type === "level") {
@@ -37,6 +39,7 @@ export default function JobListing() {
     ]);
   }, [role, level, languages, tools]);
 
+  //Localstorage
   useEffect(() => {
     const itemsStored = localStorage.getItem("choice");
 
@@ -48,6 +51,7 @@ export default function JobListing() {
   useEffect(() => {
     if (choice.length > 0) {
       localStorage.setItem("choice", JSON.stringify(choice));
+      //Filter the 'data' based on selected criteria
       const filtered = data.filter((job) => {
         return (
           (!role || job.role === role) &&
@@ -86,7 +90,7 @@ export default function JobListing() {
                   ))}
                   {item.tools.map((tool) => (
                     <span key={index} className="mr-2">
-                      {tool}x
+                      {tool}
                     </span>
                   ))}
                 </div>
