@@ -10,6 +10,7 @@ export default function JobListing() {
   const [choice, setChoice] = useState([
     { role: role, level: level, languages: languages, tools: tools },
   ]);
+  const [filteredJobs, setFilteredJobs] = useState(data);
 
   const handleSelection = (e, type) => {
     const value = e.target.textContent;
@@ -26,6 +27,17 @@ export default function JobListing() {
   };
 
   useEffect(() => {
+    setChoice([
+      {
+        role: role,
+        level: level,
+        languages: languages,
+        tools: tools,
+      },
+    ]);
+  }, [role, level, languages, tools]);
+
+  useEffect(() => {
     const itemsStored = localStorage.getItem("choice");
 
     if (itemsStored) {
@@ -36,8 +48,21 @@ export default function JobListing() {
   useEffect(() => {
     if (choice.length > 0) {
       localStorage.setItem("choice", JSON.stringify(choice));
+      const filtered = data.filter((job) => {
+        return (
+          (!role || job.role === role) &&
+          (!level || job.level === level) &&
+          (languages.length === 0 ||
+            languages.every((lang) => job.languages.includes(lang))) &&
+          (tools.length === 0 ||
+            tools.every((tool) => job.tools.includes(tool)))
+        );
+      });
+      setFilteredJobs(filtered);
+    } else {
+      setFilteredJobs(data);
     }
-  }, [choice]);
+  }, [choice, role, level, languages, tools]);
 
   return (
     <div>
@@ -47,20 +72,31 @@ export default function JobListing() {
           alt=""
           className="bg-desaturated-dark-cyan"
         />
-        {/* {choice.length > 0 && (
+        {choice.length > 0 && (
           <div className="bg-white w-9/12 mx-auto py-2.5 shadow rounded relative bottom-6 pl-5">
             <p>
               {choice.map((item, index) => (
-                <span key={index} className="mr-2">
-                  {item}
-                </span>
+                <div key={index}>
+                  <span className="mr-2">{item.role}</span>
+                  <span className="mr-2">{item.level}</span>
+                  {item.languages.map((language) => (
+                    <span key={index} className="mr-2">
+                      {language}
+                    </span>
+                  ))}
+                  {item.tools.map((tool) => (
+                    <span key={index} className="mr-2">
+                      {tool}x
+                    </span>
+                  ))}
+                </div>
               ))}
             </p>
           </div>
-        )} */}
+        )}
       </div>
       <div className="space-y-5">
-        {data.map((job) => {
+        {filteredJobs.map((job) => {
           return (
             <section key={job.id}>
               <article className="flex items-center shadow w-9/12 mx-auto justify-between p-6 ">
