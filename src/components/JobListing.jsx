@@ -99,7 +99,13 @@ export default function JobListing() {
         {filteredJobs.map((job) => {
           return (
             <section key={job.id}>
-              <article className="w-4/5 items-center shadow-3xl mx-auto justify-between p-6 md:flex md:w-9/12">
+              <article
+                className={`w-4/5 items-center shadow-3xl mx-auto justify-between p-6  md:flex md:w-9/12 ${
+                  job.new
+                    ? "border-l-4 border-desaturated-dark-cyan rounded"
+                    : "border-l-0"
+                }`}
+              >
                 <div className="lg:flex shrink-0">
                   <figure className="mr-5">
                     <img
@@ -181,8 +187,8 @@ export default function JobListing() {
             </section>
           );
         })}
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }
