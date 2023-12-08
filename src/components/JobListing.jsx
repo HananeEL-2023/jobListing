@@ -94,14 +94,18 @@ export default function JobListing() {
           </div>
         )}
       </div>
-      <div className="space-y-5">
+      <div className="space-y-8">
         {filteredJobs.map((job) => {
           return (
             <section key={job.id}>
-              <article className="lg:flex lg:w-9/12 items-center shadow-3xl mx-auto justify-between p-6 ">
-                <div className="lg:flex shrink-0">
+              <article className="w-4/5 md:flex md:w-9/12 items-center shadow-3xl mx-auto justify-between p-6 ">
+                <div className=" lg:flex shrink-0">
                   <figure className="mr-5">
-                    <img src={job.logo} alt="logo" className="w-1/5	lg:w-3/4" />
+                    <img
+                      src={job.logo}
+                      alt="logo"
+                      className="relative w-1/5 bottom-9 md:static lg:w-3/4  "
+                    />
                   </figure>
                   <div>
                     <div className="flex mb-2 ">
@@ -129,20 +133,21 @@ export default function JobListing() {
                     </ul>
                   </div>
                 </div>
-                <ul className="flex text-base text-desaturated-dark-cyan cursor-pointer">
+                <hr className="md:hidden border-dark-grayish-cyan my-4" />
+                <ul className="flex flex-wrap text-base text-desaturated-dark-cyan cursor-pointer">
                   <li
-                    className="mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded "
+                    className="mb-2 mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded "
                     onClick={(e) => handleSelection(e, "role")}
                   >
                     {job.role}
                   </li>
                   <li
-                    className="mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded "
+                    className="mb-2 mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded "
                     onClick={(e) => handleSelection(e, "level")}
                   >
                     {job.level}
                   </li>
-                  <ul className="flex cursor-pointer">
+                  <ul className="flex flex-wrap cursor-pointer mb-2">
                     {job.tools &&
                       job.tools.map((tool, index) => (
                         <li
@@ -156,7 +161,7 @@ export default function JobListing() {
                         </li>
                       ))}
                   </ul>
-                  <ul className="flex mr-1.5 cursor-pointer">
+                  <ul className="flex flex-wrap mr-1.5 cursor-pointer mb-2">
                     {job.languages &&
                       job.languages.map((language, index) => (
                         <li
