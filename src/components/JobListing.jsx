@@ -70,14 +70,9 @@ export default function JobListing() {
 
   return (
     <div>
-      <div>
-        <img
-          src="./images/bg-header-desktop.svg"
-          alt=""
-          className="bg-desaturated-dark-cyan"
-        />
+      <div className="bg-mobile lg:bg-desktop w-full h-36 bg-desaturated-dark-cyan">
         {choice.length > 0 && (
-          <div className="bg-white w-9/12 mx-auto py-2.5 shadow rounded relative bottom-6 pl-5">
+          <div className="bg-white lg:w-9/12 mx-auto py-2.5 shadow rounded relative bottom-6 pl-5">
             <p>
               {choice.map((item, index) => (
                 <div key={index}>
@@ -103,10 +98,10 @@ export default function JobListing() {
         {filteredJobs.map((job) => {
           return (
             <section key={job.id}>
-              <article className="flex items-center shadow w-9/12 mx-auto justify-between p-6 ">
-                <div className="flex shrink-0">
+              <article className="lg:flex lg:w-9/12 items-center shadow-3xl mx-auto justify-between p-6 ">
+                <div className="lg:flex shrink-0">
                   <figure className="mr-5">
-                    <img src={job.logo} alt="logo" className="w-3/4" />
+                    <img src={job.logo} alt="logo" className="w-1/5	lg:w-3/4" />
                   </figure>
                   <div>
                     <div className="flex mb-2 ">
@@ -134,20 +129,20 @@ export default function JobListing() {
                     </ul>
                   </div>
                 </div>
-                <ul className="flex text-base text-desaturated-dark-cyan ">
+                <ul className="flex text-base text-desaturated-dark-cyan cursor-pointer">
                   <li
-                    className="mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded"
+                    className="mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded "
                     onClick={(e) => handleSelection(e, "role")}
                   >
                     {job.role}
                   </li>
                   <li
-                    className="mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded"
+                    className="mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded "
                     onClick={(e) => handleSelection(e, "level")}
                   >
                     {job.level}
                   </li>
-                  <ul className="flex ">
+                  <ul className="flex cursor-pointer">
                     {job.tools &&
                       job.tools.map((tool, index) => (
                         <li
@@ -161,7 +156,7 @@ export default function JobListing() {
                         </li>
                       ))}
                   </ul>
-                  <ul className="flex mr-1.5 ">
+                  <ul className="flex mr-1.5 cursor-pointer">
                     {job.languages &&
                       job.languages.map((language, index) => (
                         <li
