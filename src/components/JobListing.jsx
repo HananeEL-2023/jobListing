@@ -1,6 +1,7 @@
 import data from "/data.json";
 import { useState, useEffect } from "react";
 import "/styles/index.css";
+import Footer from "./Footer/Footer";
 
 export default function JobListing() {
   const [role, setRole] = useState("");
@@ -94,7 +95,7 @@ export default function JobListing() {
           </div>
         )}
       </div>
-      <div className="space-y-8">
+      <div className="space-y-14">
         {filteredJobs.map((job) => {
           return (
             <section key={job.id}>
@@ -181,6 +182,7 @@ export default function JobListing() {
           );
         })}
       </div>
+      <Footer />
     </div>
   );
 }
