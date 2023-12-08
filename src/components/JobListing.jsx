@@ -77,16 +77,28 @@ export default function JobListing() {
             <p>
               {choice.map((item, index) => (
                 <div key={index}>
-                  <span className="mr-2">{item.role}</span>
-                  <span className="mr-2">{item.level}</span>
+                  {item.role && (
+                    <span className="mr-2 bg-light-grayish-cyan1 px-3 py-2.5 rounded text-desaturated-dark-cyan">
+                      {item.role}
+                      <button>x</button>
+                    </span>
+                  )}
+                  {item.level && (
+                    <span className="mr-2 light-grayish-cyan2">
+                      {item.level}
+                      <button>x</button>
+                    </span>
+                  )}
                   {item.languages.map((language) => (
-                    <span key={index} className="mr-2">
+                    <span key={index} className="mr-2 bg-light-grayish-cyan1">
                       {language}
+                      <button>x</button>
                     </span>
                   ))}
                   {item.tools.map((tool) => (
-                    <span key={index} className="mr-2">
+                    <span key={index} className="mr-2 bg-light-grayish-cyan1">
                       {tool}
+                      <button>x</button>
                     </span>
                   ))}
                 </div>
