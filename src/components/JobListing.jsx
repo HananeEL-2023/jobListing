@@ -69,6 +69,10 @@ export default function JobListing() {
     }
   }, [choice, role, level, languages, tools]);
 
+  const clearAll = () => {
+    setFilteredJobs(data);
+  };
+
   return (
     <div>
       <div className="bg-mobile w-full h-36 bg-desaturated-dark-cyan mb-14 md:bg-desktop">
@@ -84,23 +88,30 @@ export default function JobListing() {
                     </span>
                   )}
                   {item.level && (
-                    <span className="mr-2 light-grayish-cyan2">
+                    <span className="mr-2 light-grayish-cyan2 px-3 py-2.5 rounded text-desaturated-dark-cyan bg-light-grayish-cyan1">
                       {item.level}
                       <button>x</button>
                     </span>
                   )}
                   {item.languages.map((language) => (
-                    <span key={index} className="mr-2 bg-light-grayish-cyan1">
+                    <span
+                      key={index}
+                      className="mr-2 bg-light-grayish-cyan1 px-3 py-2.5 rounded text-desaturated-dark-cyan"
+                    >
                       {language}
                       <button>x</button>
                     </span>
                   ))}
                   {item.tools.map((tool) => (
-                    <span key={index} className="mr-2 bg-light-grayish-cyan1">
+                    <span
+                      key={index}
+                      className="mr-2 bg-light-grayish-cyan1 px-3 py-2.5 rounded text-desaturated-dark-cyan"
+                    >
                       {tool}
                       <button>x</button>
                     </span>
                   ))}
+                  <button onClick={clearAll}>Clear</button>
                 </div>
               ))}
             </p>
