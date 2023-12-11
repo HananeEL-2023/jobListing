@@ -73,6 +73,10 @@ export default function JobListing() {
     setFilteredJobs(data);
   };
 
+  const handleDelete = (id) => {
+    setChoice((prev) => prev.filter((item) => item.id != id));
+  };
+
   return (
     <div>
       <div className="bg-mobile w-full h-36 bg-desaturated-dark-cyan mb-14 md:bg-desktop">
@@ -84,13 +88,13 @@ export default function JobListing() {
                   {item.role && (
                     <span className="mr-2 bg-light-grayish-cyan1 px-3 py-2.5 rounded text-desaturated-dark-cyan">
                       {item.role}
-                      <button>x</button>
+                      <button onClick={() => handleDelete(item.id)}>x</button>
                     </span>
                   )}
                   {item.level && (
                     <span className="mr-2 light-grayish-cyan2 px-3 py-2.5 rounded text-desaturated-dark-cyan bg-light-grayish-cyan1">
                       {item.level}
-                      <button>x</button>
+                      <button onClick={() => handleDelete(item.id)}>x</button>
                     </span>
                   )}
                   {item.languages.map((language) => (
