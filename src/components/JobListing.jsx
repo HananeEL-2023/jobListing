@@ -12,7 +12,7 @@ export default function JobListing() {
   });
   const { role, level, languages, tools } = choice;
   const isActiveFilter =
-    role || level || languages.length > 0 || tools.length > 0;
+    role || level || languages?.length > 0 || tools?.length > 0;
   const [filteredJobs, setFilteredJobs] = useState(data);
 
   // Function to handle user selections
@@ -72,14 +72,19 @@ export default function JobListing() {
     if (type === "role") {
       setChoice((prev) => ({ ...prev, role: "" }));
     } else if (type === "level") {
-      setChoice((prev) => ({ ...prev, role: "" }));
+      setChoice((prev) => ({ ...prev, level: "" }));
     } else if (type === "languages") {
-      // TODO
+      setChoice((prev) => ({
+        ...prev,
+        languages: prev.languages.filter((language) => language !== value),
+      }));
     } else if (type === "tools") {
-      // TODO
+      setChoice((prev) => ({
+        ...prev,
+        tools: prev.tools.filter((tool) => tool !== value),
+      }));
     }
   };
-
   return (
     <div className="min-h-screen flex flex-col">
       <div className="bg-mobile w-full h-36 bg-desaturated-dark-cyan md:bg-desktop">
