@@ -103,7 +103,7 @@ export default function JobListing() {
                       className="mr-2 bg-light-grayish-cyan1 px-3 py-2.5 rounded text-desaturated-dark-cyan"
                     >
                       {language}
-                      <button>x</button>
+                      <button onClick={() => handleDelete(item.id)}>x</button>
                     </span>
                   ))}
                   {item.tools.map((tool) => (
@@ -112,7 +112,7 @@ export default function JobListing() {
                       className="mr-2 bg-light-grayish-cyan1 px-3 py-2.5 rounded text-desaturated-dark-cyan"
                     >
                       {tool}
-                      <button>x</button>
+                      <button onClick={() => handleDelete(item.id)}>x</button>
                     </span>
                   ))}
                   <button onClick={clearAll}>Clear</button>
@@ -214,8 +214,8 @@ export default function JobListing() {
             </section>
           );
         })}
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }
