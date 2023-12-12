@@ -4,13 +4,15 @@ import "/styles/index.css";
 import Footer from "./Footer/Footer";
 
 export default function JobListing() {
-  const [role, setRole] = useState("");
-  const [level, setLevel] = useState("");
-  const [languages, setLanguages] = useState([]);
-  const [tools, setTools] = useState([]);
-  const [choice, setChoice] = useState([
-    { role: role, level: level, languages: languages, tools: tools },
-  ]);
+  const [choice, setChoice] = useState({
+    role: "",
+    level: "",
+    languages: [],
+    tools: [],
+  });
+  const { role, level, languages, tools } = choice;
+  const isActiveFilter =
+    role || level || languages.length > 0 || tools.length > 0;
   const [filteredJobs, setFilteredJobs] = useState(data);
 
   // Function to handle user selections
@@ -19,26 +21,15 @@ export default function JobListing() {
 
     // Handle selection based on the specified 'type'
     if (type === "role") {
-      setRole(value);
+      setChoice((prev) => ({ ...prev, role: value }));
     } else if (type === "level") {
-      setLevel(value);
+      setChoice((prev) => ({ ...prev, level: value }));
     } else if (type === "languages") {
-      setLanguages((prev) => [...prev, value]);
+      setChoice((prev) => ({ ...prev, languages: [...prev.languages, value] }));
     } else if (type === "tools") {
-      setTools((prev) => [...prev, value]);
+      setChoice((prev) => ({ ...prev, tools: [...prev.tools, value] }));
     }
   };
-
-  useEffect(() => {
-    setChoice([
-      {
-        role: role,
-        level: level,
-        languages: languages,
-        tools: tools,
-      },
-    ]);
-  }, [role, level, languages, tools]);
 
   //Localstorage
   useEffect(() => {
@@ -50,79 +41,100 @@ export default function JobListing() {
   }, []);
 
   useEffect(() => {
-    if (choice.length > 0) {
+    if (isActiveFilter) {
       localStorage.setItem("choice", JSON.stringify(choice));
-      //Filter the 'data' based on selected criteria
-      const filtered = data.filter((job) => {
-        return (
-          (!role || job.role === role) &&
-          (!level || job.level === level) &&
-          (languages.length === 0 ||
-            languages.every((lang) => job.languages.includes(lang))) &&
-          (tools.length === 0 ||
-            tools.every((tool) => job.tools.includes(tool)))
-        );
-      });
-      setFilteredJobs(filtered);
-    } else {
-      setFilteredJobs(data);
     }
-  }, [choice, role, level, languages, tools]);
+
+    // Filter the 'data' based on selected criteria
+    const filtered = data.filter((job) => {
+      return (
+        (!role || job.role === role) &&
+        (!level || job.level === level) &&
+        (languages.length === 0 ||
+          languages.every((lang) => job.languages.includes(lang))) &&
+        (tools.length === 0 || tools.every((tool) => job.tools.includes(tool)))
+      );
+    });
+
+    setFilteredJobs(filtered);
+  }, [choice, role, level, languages, tools, isActiveFilter]);
 
   const clearAll = () => {
-    setFilteredJobs(data);
+    setChoice({
+      role: "",
+      level: "",
+      languages: [],
+      tools: [],
+    });
   };
 
-  const handleDelete = (id) => {
-    setChoice((prev) => prev.filter((item) => item.id != id));
+  const handleDelete = (value, type) => {
+    if (type === "role") {
+      setChoice((prev) => ({ ...prev, role: "" }));
+    } else if (type === "level") {
+      setChoice((prev) => ({ ...prev, role: "" }));
+    } else if (type === "languages") {
+      // TODO
+    } else if (type === "tools") {
+      // TODO
+    }
   };
 
   return (
-    <div>
-      <div className="bg-mobile w-full h-36 bg-desaturated-dark-cyan mb-14 md:bg-desktop">
-        {choice.length > 0 && (
+    <div className="min-h-screen flex flex-col">
+      <div className="bg-mobile w-full h-36 bg-desaturated-dark-cyan md:bg-desktop">
+        {isActiveFilter && (
           <div className="bg-white relative w-4/5 top-24 py-7 mx-auto shadow-3xl rounded pl-5 md:w-9/12 md:py-2.5 md:top-28">
             <p>
-              {choice.map((item, index) => (
-                <div key={index}>
-                  {item.role && (
-                    <span className="mr-2 bg-light-grayish-cyan1 px-3 py-2.5 rounded text-desaturated-dark-cyan">
-                      {item.role}
-                      <button onClick={() => handleDelete(item.id)}>x</button>
-                    </span>
-                  )}
-                  {item.level && (
-                    <span className="mr-2 light-grayish-cyan2 px-3 py-2.5 rounded text-desaturated-dark-cyan bg-light-grayish-cyan1">
-                      {item.level}
-                      <button onClick={() => handleDelete(item.id)}>x</button>
-                    </span>
-                  )}
-                  {item.languages.map((language) => (
-                    <span
-                      key={index}
-                      className="mr-2 bg-light-grayish-cyan1 px-3 py-2.5 rounded text-desaturated-dark-cyan"
+              <div>
+                {role && (
+                  <span className="mr-2 bg-light-grayish-cyan1 px-3 py-2.5 rounded text-desaturated-dark-cyan">
+                    {role}
+                    <button
+                      onClick={() => handleDelete(role, "role")}
+                      className="text-black ml-2"
                     >
-                      {language}
-                      <button onClick={() => handleDelete(item.id)}>x</button>
-                    </span>
-                  ))}
-                  {item.tools.map((tool) => (
-                    <span
-                      key={index}
-                      className="mr-2 bg-light-grayish-cyan1 px-3 py-2.5 rounded text-desaturated-dark-cyan"
-                    >
-                      {tool}
-                      <button onClick={() => handleDelete(item.id)}>x</button>
-                    </span>
-                  ))}
-                  <button onClick={clearAll}>Clear</button>
-                </div>
-              ))}
+                      x
+                    </button>
+                  </span>
+                )}
+                {level && (
+                  <span className="mr-2 light-grayish-cyan2 px-3 py-2.5 rounded text-desaturated-dark-cyan bg-light-grayish-cyan1">
+                    {level}
+                    <button onClick={() => handleDelete(level, "level")}>
+                      x
+                    </button>
+                  </span>
+                )}
+                {languages.map((language) => (
+                  <span
+                    key={language}
+                    className="mr-2 bg-light-grayish-cyan1 px-3 py-2.5 rounded text-desaturated-dark-cyan"
+                  >
+                    {language}
+                    <button onClick={() => handleDelete(language, "languages")}>
+                      x
+                    </button>
+                  </span>
+                ))}
+                {tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="mr-2 bg-light-grayish-cyan1 px-3 py-2.5 rounded text-desaturated-dark-cyan"
+                  >
+                    {tool}
+                    <button onClick={() => handleDelete(tool, "tools")}>
+                      x
+                    </button>
+                  </span>
+                ))}
+                <button onClick={clearAll}>Clear</button>
+              </div>
             </p>
           </div>
         )}
       </div>
-      <div className="space-y-14">
+      <div className="space-y-10 my-14">
         {filteredJobs.map((job) => {
           return (
             <section key={job.id}>
