@@ -11,6 +11,7 @@ This is a solution to the [Job listings with filtering challenge on Frontend Men
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
+- [Useful resources](#useful-resources)
 
 ## Overview
 
@@ -48,3 +49,7 @@ Mobile Version
 ### What I learned
 
 This marks my second experience with Tailwind CSS, and I've found myself growing more confident with its usage. I've also picked up some new tips along the way. As for React, I employed the useState and useEffect hooks. Familiarity with these hooks made the process feel quite seamless, as I had already worked with them before.
+
+### Useful resources
+
+- [Tailwindcss](https://tailwindcss.com/) - I must say that the documentation has been incredibly helpful. It's clear, well-written, and has made my learning experience quite smooth.
