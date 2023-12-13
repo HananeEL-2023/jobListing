@@ -174,7 +174,7 @@ export default function JobListing() {
                         </p>
                       )}
                     </div>
-                    <p className="font-bold text-base text-very-dark-grayish-cyan mb-2">
+                    <p className="font-bold text-base text-very-dark-grayish-cyan mb-2 cursor-pointer hover:text-desaturated-dark-cyan">
                       {job.position}
                     </p>
                     <ul className="flex text-base text-dark-grayish-cyan">
@@ -185,15 +185,15 @@ export default function JobListing() {
                   </div>
                 </div>
                 <hr className="border-dark-grayish-cyan my-4 md:hidden" />
-                <ul className="flex flex-wrap text-base text-desaturated-dark-cyan cursor-pointer md:ml-14 lg:ml:0">
+                <ul className="flex flex-wrap text-base text-desaturated-dark-cyan cursor-pointer md:ml-14 lg:ml:0 ">
                   <li
-                    className="mb-2 mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded "
+                    className="mb-2 mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded hover:text-light-grayish-cyan1 hover:bg-desaturated-dark-cyan"
                     onClick={(e) => handleSelection(e, "role")}
                   >
                     {job.role}
                   </li>
                   <li
-                    className="mb-2 mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded "
+                    className="mb-2 mr-1.5 bg-light-grayish-cyan1 px-2.5 rounded hover:text-light-grayish-cyan1 hover:bg-desaturated-dark-cyan"
                     onClick={(e) => handleSelection(e, "level")}
                   >
                     {job.level}
@@ -203,7 +203,7 @@ export default function JobListing() {
                       job.tools.map((tool, index) => (
                         <li
                           key={index}
-                          className="px-2.5 rounded mr-1.5 bg-light-grayish-cyan1 mb-2"
+                          className="px-2.5 rounded mr-1.5 bg-light-grayish-cyan1 mb-2 hover:text-light-grayish-cyan1 hover:bg-desaturated-dark-cyan"
                           onClick={(e) => {
                             handleSelection(e, "tools");
                           }}
@@ -217,7 +217,7 @@ export default function JobListing() {
                       job.languages.map((language, index) => (
                         <li
                           key={index}
-                          className="px-2.5 rounded mr-1.5 bg-light-grayish-cyan1 mb-2"
+                          className="px-2.5 rounded mr-1.5 bg-light-grayish-cyan1 mb-2 hover:text-light-grayish-cyan1 hover:bg-desaturated-dark-cyan"
                           onClick={(e) => {
                             handleSelection(e, "languages");
                           }}
