@@ -25,9 +25,19 @@ export default function JobListing() {
     } else if (type === "level") {
       setChoice((prev) => ({ ...prev, level: value }));
     } else if (type === "languages") {
-      setChoice((prev) => ({ ...prev, languages: [...prev.languages, value] }));
+      if (!languages.includes(value)) {
+        setChoice((prev) => ({
+          ...prev,
+          languages: [...prev.languages, value],
+        }));
+      }
     } else if (type === "tools") {
-      setChoice((prev) => ({ ...prev, tools: [...prev.tools, value] }));
+      if (!tools.includes(value)) {
+        setChoice((prev) => ({
+          ...prev,
+          tools: [...prev.tools, value],
+        }));
+      }
     }
   };
 
@@ -89,7 +99,7 @@ export default function JobListing() {
     <div className="min-h-screen flex flex-col">
       <div className="bg-mobile w-full h-36 bg-desaturated-dark-cyan md:bg-desktop">
         {isActiveFilter && (
-          <div className="bg-white relative w-4/5 top-24 py-7 px-4 mx-auto shadow-3xl rounded pl-5 md:w-9/12 md:py-2.5 md:top-28">
+          <div className="bg-white relative w-11/12 top-24 py-7 px-4 mx-auto shadow-3xl rounded pl-5 md:w-9/12 md:py-2.5 md:top-28">
             <p>
               <div>
                 {role && (
