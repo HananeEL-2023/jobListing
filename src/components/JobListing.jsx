@@ -89,7 +89,7 @@ export default function JobListing() {
     <div className="min-h-screen flex flex-col">
       <div className="bg-mobile w-full h-36 bg-desaturated-dark-cyan md:bg-desktop">
         {isActiveFilter && (
-          <div className="bg-white relative w-4/5 top-24 py-7 mx-auto shadow-3xl rounded pl-5 md:w-9/12 md:py-2.5 md:top-28">
+          <div className="bg-white relative w-4/5 top-24 py-7 px-4 mx-auto shadow-3xl rounded pl-5 md:w-9/12 md:py-2.5 md:top-28">
             <p>
               <div>
                 {role && (
@@ -133,7 +133,12 @@ export default function JobListing() {
                     </button>
                   </span>
                 ))}
-                <button onClick={clearAll}>Clear</button>
+                <button
+                  onClick={clearAll}
+                  className="float-right text-dark-grayish-cyan hover:text-desaturated-dark-cyan hover:border-b"
+                >
+                  Clear
+                </button>
               </div>
             </p>
           </div>
