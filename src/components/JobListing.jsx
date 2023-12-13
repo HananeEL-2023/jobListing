@@ -149,7 +149,7 @@ export default function JobListing() {
           return (
             <section key={job.id}>
               <article
-                className={`w-4/5 items-center shadow-3xl mx-auto justify-between p-6  md:flex md:w-9/12 ${
+                className={`w-11/12 items-center shadow-3xl mx-auto justify-between p-6 md:flex md:w-9/12 ${
                   job.new
                     ? "border-l-4 border-desaturated-dark-cyan rounded"
                     : "border-l-0"
