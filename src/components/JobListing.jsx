@@ -107,7 +107,7 @@ export default function JobListing() {
                     {role}
                     <button
                       onClick={() => handleDelete(role, "role")}
-                      className="text-black ml-2"
+                      className="ml-2"
                     >
                       x
                     </button>
@@ -116,7 +116,10 @@ export default function JobListing() {
                 {level && (
                   <span className="mr-2 light-grayish-cyan2 px-3 py-2.5 rounded text-desaturated-dark-cyan bg-light-grayish-cyan1">
                     {level}
-                    <button onClick={() => handleDelete(level, "level")}>
+                    <button
+                      onClick={() => handleDelete(level, "level")}
+                      className="ml-2"
+                    >
                       x
                     </button>
                   </span>
@@ -127,7 +130,10 @@ export default function JobListing() {
                     className="mr-2 bg-light-grayish-cyan1 px-3 py-2.5 rounded text-desaturated-dark-cyan"
                   >
                     {language}
-                    <button onClick={() => handleDelete(language, "languages")}>
+                    <button
+                      onClick={() => handleDelete(language, "languages")}
+                      className="ml-2"
+                    >
                       x
                     </button>
                   </span>
@@ -138,7 +144,10 @@ export default function JobListing() {
                     className="mr-2 bg-light-grayish-cyan1 px-3 py-2.5 rounded text-desaturated-dark-cyan"
                   >
                     {tool}
-                    <button onClick={() => handleDelete(tool, "tools")}>
+                    <button
+                      onClick={() => handleDelete(tool, "tools")}
+                      className="ml-2"
+                    >
                       x
                     </button>
                   </span>
