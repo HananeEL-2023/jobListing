@@ -28,12 +28,15 @@ Users should be able to:
 
 ### Screenshot
 
-![Alt text](<Desktop version.png>)
+![Desktop version](<Desktop version.png>)
+
+![Active states](Active-state.png)
+
+![Mobile version](<Mobile version.png>)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Add live site URL here](https://job-listing-rosy.vercel.app/)
 
 ## My process
 
