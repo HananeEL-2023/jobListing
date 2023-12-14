@@ -14,10 +14,6 @@ export default {
       boxShadow: {
         "3xl": "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
       },
-      backgroundImage: {
-        desktop: "url('./images/bg-header-desktop.svg')",
-        mobile: "url('./images/bg-header-mobile.svg')",
-      },
     },
     fontFamily: {
       leagueSpartan: ["League Spartan", "sans-serif"],

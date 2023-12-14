@@ -97,7 +97,15 @@ export default function JobListing() {
   };
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="bg-mobile w-full h-36 bg-desaturated-dark-cyan md:bg-desktop">
+      <div
+        className="w-full h-36 bg-desaturated-dark-cyan"
+        style={{
+          backgroundImage: `url("${"./images/bg-header-mobile.svg"}")`,
+          "@media (min-width: 768px)": {
+            backgroundImage: `url("${"./images/bg-header-desktop.svg"}")`,
+          },
+        }}
+      >
         {isActiveFilter && (
           <div className="bg-white relative w-11/12 top-24 py-7 px-4 mx-auto shadow-3xl rounded pl-5 md:w-9/12 md:py-2.5 md:top-28">
             <p>
