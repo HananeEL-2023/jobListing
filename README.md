@@ -1,4 +1,4 @@
-# Job listings with filtering solution
+# <p align="center">Job listings with filtering 📋💼</p>
 
 This is a solution to the [Job listings with filtering challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt).
 
