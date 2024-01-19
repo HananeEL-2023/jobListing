@@ -2,13 +2,12 @@
 
 This is a solution to the [Job listings with filtering challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt).
 
-### The challenge
 
-Users should be able to:
+In this project users should be able to:
 
+- Filter job listings based on the categories
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
-- Filter job listings based on the categories
 
 ### This project built with :
 
