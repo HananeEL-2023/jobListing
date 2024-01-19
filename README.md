@@ -12,11 +12,10 @@ Users should be able to:
 
 ### Screenshot
 
-Desktop Version
+<div>
 <img width="556" alt="home page" src="https://github.com/HananeEL-2023/jobListing/assets/57252797/d71cd484-6172-4eb7-b943-e7f5a9cbbe04">
-
-Mobile Version
-![Mobile version](<Mobile version.png>)
+<img width="556" alt="home page" src="https://github.com/HananeEL-2023/jobListing/assets/57252797/a79fd32f-8da5-49eb-8575-c98a67e25525">
+</div>
 
 ### Links
 
