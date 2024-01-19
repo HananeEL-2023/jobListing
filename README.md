@@ -14,7 +14,7 @@ Users should be able to:
 
 <div style="display: flex;">
 <img width="556" alt="home page" src="https://github.com/HananeEL-2023/jobListing/assets/57252797/d71cd484-6172-4eb7-b943-e7f5a9cbbe04">
-<img width="300" alt="home page" src="https://github.com/HananeEL-2023/jobListing/assets/57252797/a79fd32f-8da5-49eb-8575-c98a67e25525">
+<img width="200" alt="home page" src="https://github.com/HananeEL-2023/jobListing/assets/57252797/a79fd32f-8da5-49eb-8575-c98a67e25525">
 </div>
 
 ### Links
