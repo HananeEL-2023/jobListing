@@ -21,7 +21,9 @@ Users should be able to:
 <img width="556" alt="Version desktop" src="https://github.com/HananeEL-2023/jobListing/assets/57252797/d71cd484-6172-4eb7-b943-e7f5a9cbbe04">
 
 
-### Links
+### Website Link:
+
+I utilize Vercel for deployment. Take a look at the site via the link below:
 
 - Live Site URL: [Click here](https://job-listing-rosy.vercel.app/)
 
