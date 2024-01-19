@@ -10,7 +10,7 @@ Users should be able to:
 - See hover states for all interactive elements on the page
 - Filter job listings based on the categories
 
-### Built with
+### This project built with :
 
 - Tailwindcss
 - Mobile-first workflow
