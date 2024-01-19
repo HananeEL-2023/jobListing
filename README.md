@@ -10,6 +10,12 @@ Users should be able to:
 - See hover states for all interactive elements on the page
 - Filter job listings based on the categories
 
+### Built with
+
+- Tailwindcss
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+
 ### Screenshot
 
 <img width="556" alt="Version desktop" src="https://github.com/HananeEL-2023/jobListing/assets/57252797/d71cd484-6172-4eb7-b943-e7f5a9cbbe04">
@@ -19,8 +25,4 @@ Users should be able to:
 
 - Live Site URL: [Click here](https://job-listing-rosy.vercel.app/)
 
-### Built with
 
-- Tailwindcss
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
